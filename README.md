@@ -1,5 +1,4 @@
 # Sistema Inteligente de Detección y Conteo de Objetos
-
 ## Descripción
 Sistema de visión artificial que detecta y cuenta personas u objetos en tiempo real usando una cámara web.
 
