@@ -1,25 +1,23 @@
 from ultralytics import YOLO
 
-# modelo ligero (rápido)
+# Modelo ligero y ultra rápido con 80 clases nativas
 model = YOLO("yolov8n.pt")
 
-
 def detectar_objetos(frame):
-    # 🔥 inferencia rápida
+    # Inferencia rápida sin textos basura en consola
     resultados = model(frame, verbose=False)
-
     conteo = 0
 
     for r in resultados:
-        # dibujar cajas
+        # r.plot() dibuja AUTOMÁTICAMENTE las cajas y nombres de CUALQUIER objeto detectado
         frame = r.plot()
 
         for box in r.boxes:
-            cls = int(box.cls[0])
-            nombre = model.names[cls]
-
-            # 🔥 filtrar objetos importantes
-            if nombre in ["person", "cell phone", "bottle", "cup"]:
+            conf = float(box.conf[0])
+            
+            # 🔥 Regla de negocio de tu spec.md: confianza superior al 50%
+            if conf > 0.50:
+                # Al eliminar el filtro de nombres, CUALQUIER objeto detectado sumará al conteo
                 conteo += 1
 
     return frame, conteo
