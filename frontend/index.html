@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visión Artificial</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,13 +14,21 @@
 
     <div class="container">
 
-        <!-- VIDEO -->
-        <img src="http://127.0.0.1:8000/video" class="video">
+        <!-- Video en tiempo real -->
+        <img src="http://127.0.0.1:8000/video" alt="Video en tiempo real" class="video">
 
-        <!-- CONTADOR FRONTEND -->
+        <!-- Panel de información -->
         <div class="card">
+
+            <!-- Esquinas decorativas -->
+            <span class="tl"></span>
+            <span class="tr"></span>
+            <span class="bl"></span>
+            <span class="br"></span>
+
             <h2 id="contador">0</h2>
             <p>Objetos detectados</p>
+
         </div>
 
     </div>

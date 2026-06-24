@@ -1,50 +1,174 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    font-family: 'Orbitron', sans-serif;
+body{
+    min-height:100vh;
+    background:#0a0a0a;
+    color:white;
+    font-family:'Orbitron',sans-serif;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    text-transform: uppercase;
+/* Título */
+h1{
+    margin-bottom:50px;
+    font-size:2rem;
+    letter-spacing:4px;
+    text-transform:uppercase;
 }
 
-.container {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+/* Contenedor principal */
+.container{
+    display:flex;
+    align-items:center;
+
+    /* Aproximadamente 5 cm */
+    gap:190px;
 }
 
-.video {
-    width: 700px;
-    border: 3px solid #000;
-    border-radius: 12px;
-    box-shadow: 5px 5px 0 #000;
+/* Cámara */
+.video{
+    width:700px;
+    height:auto;
+
+    border:3px solid white;
+    border-radius:15px;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,.2);
 }
 
-/* tarjeta contador */
-.card {
-    width: 200px;
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 4px 4px 0 #000;
+/* Cuadro del contador */
+.card{
+    width:280px;
+    height:220px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    border:2px solid white;
+    border-radius:15px;
+
+    background:#111;
+
+    position:relative;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,.15);
 }
 
-.card h2 {
-    font-size: 3rem;
+/* Línea de escaneo */
+.card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:30px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    animation:scan 2.5s linear infinite;
+}
+
+@keyframes scan{
+    0%{
+        top:0;
+    }
+
+    100%{
+        top:calc(100% - 3px);
+    }
+}
+
+/* Número */
+.card h2{
+    font-size:5rem;
+    margin-bottom:10px;
+}
+
+/* Texto */
+.card p{
+    color:#aaa;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* Esquinas tecnológicas */
+.card span{
+    position:absolute;
+    width:20px;
+    height:20px;
+}
+
+.tl{
+    top:8px;
+    left:8px;
+    border-top:2px solid white;
+    border-left:2px solid white;
+}
+
+.tr{
+    top:8px;
+    right:8px;
+    border-top:2px solid white;
+    border-right:2px solid white;
+}
+
+.bl{
+    bottom:8px;
+    left:8px;
+    border-bottom:2px solid white;
+    border-left:2px solid white;
+}
+
+.br{
+    bottom:8px;
+    right:8px;
+    border-bottom:2px solid white;
+    border-right:2px solid white;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%, rgb(255, 255, 255) 1px, transparent 2px),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255) 1px, transparent 2px),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255) 1px, transparent 2px);
+
+    background-size:40px 40px;
+
+    animation:networkMove 15s linear infinite;
+
+    opacity:.2;
+    z-index:-1;
+}
+
+@keyframes networkMove{
+    from{
+        background-position:0 0, 0 0, 0 0;
+    }
+
+    to{
+        background-position:200px 100px, -150px 80px, 100px -120px;
+    }
 }
