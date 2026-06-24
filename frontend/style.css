@@ -172,3 +172,10 @@ body::before{
         background-position:200px 100px, -150px 80px, 100px -120px;
     }
 }
+
+/* Contenedor para las tarjetas */
+.stats{
+    display:flex;
+    flex-direction:column;
+    gap:100px;
+}

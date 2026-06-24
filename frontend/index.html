@@ -14,20 +14,25 @@
 
     <div class="container">
 
-        <!-- Video en tiempo real -->
-        <img src="http://127.0.0.1:8000/video" alt="Video en tiempo real" class="video">
+        <!-- Cámara -->
+        <img src="http://127.0.0.1:8000/video"
+             alt="Video en tiempo real"
+             class="video">
 
-        <!-- Panel de información -->
-        <div class="card">
+        <!-- Contenedor de tarjetas -->
+        <div class="stats">
 
-            <!-- Esquinas decorativas -->
-            <span class="tl"></span>
-            <span class="tr"></span>
-            <span class="bl"></span>
-            <span class="br"></span>
+            <!-- Objetos -->
+            <div class="card">
+                <h2 id="objetos">0</h2>
+                <p>Objetos detectados</p>
+            </div>
 
-            <h2 id="contador">0</h2>
-            <p>Objetos detectados</p>
+            <!-- Personas -->
+            <div class="card">
+                <h2 id="personas">0</h2>
+                <p>Personas detectadas</p>
+            </div>
 
         </div>
 
